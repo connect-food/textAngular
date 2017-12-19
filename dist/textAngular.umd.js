@@ -4021,6 +4021,8 @@ textAngular.directive("textAngular", [
                         if(_resizeTimeout) $timeout.cancel(_resizeTimeout);
                         _resizeTimeout = $timeout(function() {
                             //console.log('resize', scope.displayElements.popover.css('display'));
+                            if (!scope.resizeElement) { return; }   // Pat - without this it started
+                                                                    // breaking after the upgrade to unify in Dec 2017
                             scope.reflowPopover(scope.resizeElement);
                             scope.reflowResizeOverlay(scope.resizeElement);
                         }, 100);
