@@ -4843,6 +4843,7 @@ textAngular.service('textAngularManager', ['taToolExecuteAction', 'taTools', 'ta
                     },
                     updateSelectedStyles: function(selectedElement){
                         // update the active state of all buttons on liked toolbars
+                      if (!editors || !editors[editorName]) { return; }
                         angular.forEach(editors[editorName].toolbarScopes, function(toolbarScope){
                             angular.forEach(toolbarScope.tools, function(toolScope){
                                 if(toolScope.activeState){
